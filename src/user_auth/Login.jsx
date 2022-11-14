@@ -10,13 +10,15 @@ export const Login = (props) => {
 
     return (
         <div className='auth-form-container'>
-            <h2>Login</h2>
+
             <form className='login-form' onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
-                <input type="email" value={email} placeholder="user@rapptrlabs.com" />
+                <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="user@rapptrlabs.com" id="email" name="email"/>
+                
                 <label htmlFor="password">Password</label>
-                <input type="password" placeholder="Must be at least 4 characters" />
+                <input type="password" onChange={(e) => setPass(e.target.value)} value={pass} placeholder="Must be at least 4 characters" id="password" name="password" />
 
+                <button type="submit">Log In</button>
             </form>
 
         </div>
