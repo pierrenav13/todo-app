@@ -1,30 +1,37 @@
 import React, {useEffect, useState} from "react";
 
 export const Login = (props) => {
-    const [email, setEmail] = useState('pnavarin@gmail.com');
+    const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [emailErrors, setEmailErrors] = useState([]);
     const [passwordErrors, setPasswordErrors] = useState([]);
     const [formValid, setFormValid] = useState(false);
     
     useEffect(() => {
-        setEmailErrors([]);
-        if(email.includes('@') === false){
-            const emailSet = new Set([...emailErrors, 'Email must include @']);
-            // setEmailErrors(emailErrors => [...emailErrors, 'Email must include @'])
-            setEmailErrors(emailErrors => [...emailSet])
-            
-        } 
-        if(email.slice(-4) !== '.com'){
-            const emailSet = new Set([...emailErrors, 'Email must end with .com']);
-            // setEmailErrors([...emailSet]);
-            // setEmailErrors(emailErrors => [...emailErrors, 'Email must end with .com'])
-            setEmailErrors(emailErrors => [...emailSet])
-            
-        }
-        if (email.includes('@') === true && email.slice(-4) === '.com'){
+        //Email Validation Logic
+        if(email.length > 0){
+            if (email.includes('@') === false) {
+                setEmailErrors(['Email must include @']);
+            } else {
+                setEmailErrors([]);
+            }
+
+            if (email.slice(-4) !== '.com') {
+                if (email.length > 0) {
+                    setEmailErrors(emailErrors => [...emailErrors, 'Email must end with .com'])
+                } else {
+                    setEmailErrors(['Email must end with .com'])
+                }
+            }
+            if (email.includes('@') === true && email.slice(-4) === '.com') {
+                setEmailErrors([]);
+            }
+        } else {
             setEmailErrors([]);
         }
+        
+
+        //Password Validation Logic
         if(pass.length === 0){
             setPasswordErrors([]);
         } else if (pass.length < 4){
