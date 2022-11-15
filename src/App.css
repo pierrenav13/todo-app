@@ -136,12 +136,21 @@ table {
 
 /*
 */
+html{
+  background-color: rgb(3, 33, 52);
+
+}
+
 
 .App {
   display: flex;
   flex-direction: column;
   text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Lexend Deca', sans-serif;
 }
+
+
 
 .login-form{
   display: flex;
@@ -151,10 +160,48 @@ table {
 
 .login-form input{
   width: 50%;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  font-family: 'Lexend Deca', sans-serif;
+  border-color: rgb(0, 191, 255);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 12pt;
+}
+
+.login-form input:focus{
+  border: 2pt;
+  border-color: rgb(0, 191, 255);
 }
 
 .r-labs{
-  padding-top: 5%;
+  padding-top: 10%;
   padding-bottom: 5%;
+  
+  font-weight: 600;
+  font-size: 32pt;
+}
+
+#login{
+  font-family: 'Lexend Deca', sans-serif;
+  background-color: transparent;
+  border-radius: 4pt;
+  color: white;
+  border-color: rgb(0, 191, 255);
+  font-size: 16pt;
+  width: 45%;
+}
+
+#login:hover{
+  background-color: rgb(0, 191, 255);
+  color: black;
+  border: white;
+  padding: 2px;
+}
+
+
+.login-form label{
+  font-size: 20pt;
+  font-weight: 500;
 }
 
