@@ -163,7 +163,7 @@ html{
   margin-top: 5px;
   margin-bottom: 25px;
   font-family: 'Lexend Deca', sans-serif;
-  border-color: rgb(0, 191, 255);
+  border-color: blue;
   border-radius: 8px;
   padding: 8px;
   font-size: 12pt;
@@ -197,11 +197,17 @@ html{
   color: black;
   border: white;
   padding: 2px;
-  cursor: pointer;
 }
 
+#email:focus{
+  outline: none !important;
+    border: 2px solid red;
+}
 
-
+*:focus {
+  outline: none;
+  border-color: red;
+}
 
 .login-form label{
   font-size: 20pt;

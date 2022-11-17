@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import TodoForm from './TodoForm'
 import Todo from './Todo';
+import {useNavigate} from 'react-router-dom';
 
 function TodoList() {
     const [todos, setTodos] = useState([]);
@@ -26,11 +27,22 @@ function TodoList() {
         setTodos(removeArr);
     }
 
+    const navigate = useNavigate()
+
+    const handleLogout = e => {
+        e.preventDefault();
+        navigate('/')
+    }
+
   return (
-    <div className='todo-list'>
-      <TodoForm onSubmit={addTodo}/>
-      <Todo todos={todos} removeTodo={removeTodo} updateTodo={updateTodo}/>
-    </div>
+    <>
+        <button className='logout' onClick={handleLogout}>Logout</button>
+        <div className='todo-list'>
+            <TodoForm onSubmit={addTodo} />
+            <Todo todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
+        </div>
+    </>
+    
   )
 }
 
