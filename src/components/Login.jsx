@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import $ from 'jquery';
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -6,6 +7,9 @@ export const Login = (props) => {
     const [emailErrors, setEmailErrors] = useState([]);
     const [passwordErrors, setPasswordErrors] = useState([]);
     const [formValid, setFormValid] = useState(false);
+
+    let loginButton = document.getElementById('login');
+
     
     useEffect(() => {
         //Email Validation Logic
@@ -41,11 +45,30 @@ export const Login = (props) => {
         }  else {
             setPasswordErrors([]);
         }
-        
+
+    }, [email, pass])
+
+    useEffect(() => {
+        if (emailErrors.length === 0 && passwordErrors.length === 0){
+            setFormValid(false);
+            $('#login').css({'opacity': 1});
+        } else {
+            setFormValid(true);
+            $('#login').css({'opacity': 0.5});
+        }
+
+        // if(formValid){
+        //     $('#login').css({'opacity': 1});
+        // } else {
+        //     $('#login').css({'opacity': 0.5});
+        // }
     }, [email, pass])
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(formValid){
+
+        }
     }
 
     
@@ -66,12 +89,12 @@ export const Login = (props) => {
                 <label htmlFor="email">Email</label>
                 <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="user@rapptrlabs.com" id="email" name="email"/>
 
-                <ul>{emailErrorList}</ul>
+                <ul className='email-errors'>{emailErrorList}</ul>
 
                 <label htmlFor="password">Password</label>
                 <input type="password" onChange={(e) => setPass(e.target.value)} value={pass} placeholder="Must be at least 4 characters" id="password" name="password" />
 
-                <ul>{passwordErrorList}</ul>
+                <ul className='password-errors'>{passwordErrorList}</ul>
 
                 <button id='login' type="submit">Log In</button>
             </form>

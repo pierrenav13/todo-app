@@ -197,7 +197,10 @@ html{
   color: black;
   border: white;
   padding: 2px;
+  cursor: pointer;
 }
+
+
 
 
 .login-form label{
@@ -205,3 +208,67 @@ html{
   font-weight: 500;
 }
 
+.email-errors{
+  color: rgba(214, 18, 0, 0.853);
+  padding-bottom: 20px;
+}
+
+.password-errors{
+  color: rgba(214, 18, 0, 0.853);
+  padding-bottom: 20px;
+}
+
+.todo-row{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 2px solid black;
+  width: 100%;
+  color: black;
+}
+
+.icons{
+  padding-left: 10px;
+}
+
+.edit-icon{
+  padding-right: 10px;
+}
+
+.hoverable:hover{
+  cursor: pointer;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  background: rgba(225, 242, 255, 0.889);
+  margin-bottom: 100px;
+  width: 75%;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.todo-form{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.todo-input{
+  border: 2px solid black;
+  background-color: transparent;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12pt;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.todo-button{
+  border: 2px solid black;
+  background-color: transparent;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 12pt;
+}

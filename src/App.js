@@ -1,12 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import { Login } from './components/Login';
+// import Todo from './components/todo/Todo';
+import TodoList from './components/todo/TodoList';
 
 function App() {
   return (
     <div className="App">
       <h1 className='r-labs'>rapptr labs</h1>
-      <Login />
+      {/* <Login /> */}
+      <TodoList />
+
     </div>
   );
 }
