@@ -17,8 +17,7 @@ function TodoForm(props) {
       });
 
       setInput('');
-      console.log('props:', props)
-      props.hideForm();
+      // props.hideForm();
     }
 
 

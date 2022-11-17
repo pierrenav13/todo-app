@@ -22,13 +22,12 @@ function TodoList(props) {
         const newTodos = [todo, ...todos]
 
         setTodos(newTodos);
+        hideForm();
     }
-
+    
     const updateTodo = (todoId, newValue) => {
-        // if (newValue.text.length === 0 || newValue.text.length > 25) {
-        //     return;
-        // }
         setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+        hideForm();
     };
 
     const removeTodo = (id) => {
