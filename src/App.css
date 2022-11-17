@@ -135,7 +135,9 @@ table {
 }
 
 /*
+Main Styling
 */
+
 html{
   background-color: rgb(3, 33, 52);
 
@@ -226,24 +228,32 @@ html{
 
 .todo-row{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-top: 2px solid black;
+  border-bottom: 2px solid black;
   width: 100%;
   color: black;
 }
 
-.icons{
+.todo-text{
   padding-left: 10px;
+}
+
+.icons{
+  padding-right: 15px;
 }
 
 .edit-icon{
   padding-right: 10px;
 }
 
+.hoverable{
+  opacity: 70%;
+}
 .hoverable:hover{
   cursor: pointer;
+  opacity: 100%;
 }
 
 .todo-list {
@@ -252,8 +262,9 @@ html{
   align-items: center;
   margin: auto;
   background: rgba(225, 242, 255, 0.889);
-  margin-bottom: 100px;
-  width: 75%;
+  width: 400px;
+  height: 400px;
+  overflow-y: auto;
   border: 2px solid black;
   border-radius: 4px;
 }
@@ -261,6 +272,8 @@ html{
 .todo-form{
   padding-top: 10px;
   padding-bottom: 10px;
+  border-bottom: 2px solid black;
+  width: 100%;
 }
 
 .todo-input{
@@ -277,4 +290,35 @@ html{
   background-color: transparent;
   font-family: 'Lexend Deca', sans-serif;
   font-size: 12pt;
+}
+
+.logout {
+  width: 25%;
+  margin: auto;
+  margin-bottom: 10px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 16pt;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 3px;
+}
+
+.search{
+  border-radius: 8px;
+  border: 1px solid black;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.hidden{
+  display: none;
+}
+
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: 3px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

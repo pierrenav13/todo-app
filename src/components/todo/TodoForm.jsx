@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 
 function TodoForm(props) {
-    const [input, setInput] = useState('');
-
+    const initialInput = props.edit ? props.edit.value : ''
+    const [input, setInput] = useState(initialInput);
+  
     const handleChange = e => {
       setInput(e.target.value);
     };
@@ -16,39 +17,42 @@ function TodoForm(props) {
       });
 
       setInput('');
+      console.log('props:', props)
+      props.hideForm();
     }
 
 
 
-  return (
-    <form className='todo-form' onSubmit={handleSubmit}>
-      {props.edit ? (
-        <>
-          <input 
-            type="text" 
-            placeholder='Update task' 
-            value={input} 
+
+  if (props.edit){
+      return (
+        <form className='todo-form' onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder='Update Task'
+            value={input}
             name='text'
             className='todo-input'
             onChange={handleChange}
           />
           <button className='todo-button hoverable'>Update</button>
-        </>
-      ) : (
-          <>
-            <input
-              type="text"
-              placeholder='Add a task'
-              value={input}
-              name='text'
-              className='todo-input'
-              onChange={handleChange}
-            />
-            <button className='todo-button hoverable'>Save</button>
-          </>
-      )} 
-    </form>
-  )
+        </form>
+      )
+  }else {
+    return (
+      <form className='todo-form' onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder='Add a task'
+          value={input}
+          name='text'
+          className='todo-input'
+          onChange={handleChange}
+        />
+        <button className='todo-button hoverable'>Save</button>
+      </form>
+    )
+  }
 }
 
 export default TodoForm

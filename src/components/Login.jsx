@@ -73,9 +73,7 @@ export const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formValid)
         if(formValid){
-            console.log("ss")
             navigate("/todos");
         }
     }

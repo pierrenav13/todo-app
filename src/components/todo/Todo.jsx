@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import TodoForm from './TodoForm'
+import TodoList from './TodoList'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
@@ -16,16 +17,19 @@ function Todo(props) {
             value: ''
         })
 
-        if(edit.id) {
-            return <TodoForm edit={edit} onSubmit={submitUpdate} />
-        }
     }
 
     if(props.todos) {
-        const todoList = props.todos.map((todo, index) => (
+        const tForm = edit.id ? [<TodoForm key={edit.id} edit={edit} onSubmit={submitUpdate} />] : []
+        let todos = props.todos;
+        if (props.filter && props.filter !== '') {
+            todos = props.todos.filter((todo) => (todo.text.toLowerCase().includes(props.filter)))
+        }
+
+        const newTodos = todos.map((todo, index) => (
             <div className='todo-row' key={index}>
             
-                <div key={todo.id}>
+                <div className='todo-text' key={todo.id}>
                     {todo.text}
                 </div>
 
@@ -45,6 +49,8 @@ function Todo(props) {
 
             </div>
         ))
+
+        return tForm.concat(newTodos); 
   } 
 }
 
