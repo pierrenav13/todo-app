@@ -276,6 +276,9 @@ html{
   width: 100%;
 }
 
+#new-form{
+  width: 100%;
+}
 .todo-input{
   border: 2px solid black;
   background-color: transparent;
@@ -322,3 +325,4 @@ html{
   padding-top: 10px;
   padding-bottom: 10px;
 }
+

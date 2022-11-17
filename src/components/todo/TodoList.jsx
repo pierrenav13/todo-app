@@ -61,7 +61,9 @@ function TodoList(props) {
             <div id='new-form' className='hidden'>
                   <TodoForm edit={props.edit} onSubmit={props.submitUpdate} hideForm={hideForm} />
             </div>
-            <Todo filter={filter} todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
+            <div className='todos'>
+                <Todo filter={filter} todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
+            </div>
         </div>
     </>
     
